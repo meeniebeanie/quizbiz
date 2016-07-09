@@ -1,19 +1,99 @@
 
 console.log("loaded");
 
-var question = $(".questionsText").text("TEST");
+//this is the blueprint for your database!
 
-var trueButton = $(".true").click(function() {
-  console.log("player clicked true!");
+function Set(question, answer) {
+  this.question = question;
+  this.answer = answer;
+}
+
+//this are all your q&a sets!
+var set1 = new Set('this is question1', true);
+var set2 = new Set('this is question2', false);
+var set3 = new Set('this is question3', true);
+var set4 = new Set('this is question4', false);
+var set5 = new Set('this is question5', true);
+var set6 = new Set('this is question6', false);
+var set7 = new Set('this is question7', true);
+var set8 = new Set('this is question8', false);
+var set9 = new Set('this is question9', true);
+var set10 = new Set('this is question10', false);
+
+//this is the array for your database!
+var setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10];
+
+//var random question randomizes questions, pairs the random question to random answer.
+var random = Math.floor((Math.random() * 10));
+var randomAnswer = false;
+var randomQuestion = '';
+var quest = $(".questionsText");
+
+//next question function
+function nextQuestion(){
+  var random = Math.floor((Math.random() * 10));
+  randomQuestion = setArray[random].question;
+  randomAnswer = setArray[random].answer;
+
+  //change class=questionText in html to the question text inside the setArray array
+  quest.text(randomQuestion);
+}
+nextQuestion();
+
+
+//what happens if player clicks true
+var trueButton = $(".true");
+trueButton.click(function() {
+  var ansTrue = true;
+  if (ansTrue == randomAnswer) {
+    quest.html("you got it right!");
+    console.log("you got it right! click enter for the next question.");
+  }
+  else {
+    quest.html("nope the answer is False!");
+    console.log("nope the answer is False! click enter for the next question.");
+  }
+  setTimeout(function nextQuestion(){
+    var random = Math.floor((Math.random() * 10));
+    randomQuestion = setArray[random].question;
+    randomAnswer = setArray[random].answer;
+    quest.text(randomQuestion);
+  }, 1500);
 });
 
-var falseButton = $(".false").click(function() {
-  console.log("player clicked false!");
+//what happens if player clicks false
+var falseButton = $(".false");
+falseButton.click(function() {
+  var ansFalse = false;
+  if (ansFalse == randomAnswer) {
+    quest.html("you got it right!");
+    console.log("you got it right! click enter for the next question.");
+  }
+  else {
+    quest.html("nope the answer is True!");
+    console.log("nope the answer is True! click enter for the next question.");
+  }
+  setTimeout(function nextQuestion(){
+    var random = Math.floor((Math.random() * 10));
+    randomQuestion = setArray[random].question;
+    randomAnswer = setArray[random].answer;
+    quest.text(randomQuestion);
+  }, 1500);
 });
 
 
-//
-// numberOfQuestions() {
+
+
+
+
+
+
+
+
+
+
+// numberOfQuestions(); {
+//   return setArray.length;
 //   //It should return an integer that is the number of questions in a game
 // }
 //

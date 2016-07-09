@@ -18,11 +18,6 @@ html, body {
   position: relative;
 }
 
-span {
-     display: inline-block;
-     vertical-align: middle;
-   }
-
 .questions {
   background-color: #F7F7F2;
   border-radius: 10px;
@@ -36,13 +31,23 @@ span {
 
 .questionsText {
  width: 50%;
- height: 50%;
+ height: 25%;
  overflow: auto;
  margin: auto;
  position: absolute;
+ display: block;
  top: 0; left: 0; bottom: 0; right: 0;
 }
 
+.answersText {
+ width: 50%;
+ height: 25%;
+ overflow: auto;
+ margin: auto;
+ position: absolute;
+ display: block;
+ top: 0; left: 0; bottom: 0; right: 0;
+}
 
 .true {
   width: 49%;
@@ -70,4 +75,9 @@ span {
 
 button {
   text-align:center;
+}
+
+p {
+  font-size: 0.5em;
+  color: grey;
 }
