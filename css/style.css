@@ -50,6 +50,10 @@ html, body {
   padding-bottom:10px;
 }
 
+.players:first-letter {
+    text-transform:capitalize;
+}
+
 #player1 {
   background-color:#3be8b0;
   float: left;
@@ -90,21 +94,46 @@ html, body {
 
 .questions {
   background-color: #F7F7F2;
-  height: 30%;
+  height: 20em;
   width: 100%;
   text-align: center;
   font-size: 1.5em;
   position: relative;
+  display: table;
 }
 
 .questionsText {
- width: 50%;
- height: 25%;
- overflow: auto;
- margin: auto;
- position: absolute;
- display: block;
- top: 0; left: 0; bottom: 0; right: 0;
+  /*display: inline-block;
+  vertical-align: middle;*/
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tieText {
+  /*display: inline-block;
+  vertical-align: middle;*/
+  /*display: table-cell;
+  vertical-align: middle;*/
+  color: #fdb94e;
+  font-size: 2em;
+}
+
+.p1WinText {
+  /*display: inline-block;
+  vertical-align: middle;*/
+  display: table-cell;
+  vertical-align: middle;
+  color: #3be8b0;
+  font-size: 2em;
+}
+
+.p2WinText {
+  /*display: inline-block;
+  vertical-align: middle;*/
+  display: table-cell;
+  vertical-align: middle;
+  color: #fc636b;
+  font-size: 2em;
 }
 
 .answersText {
