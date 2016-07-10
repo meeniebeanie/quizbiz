@@ -3,25 +3,77 @@ html, body {
   width: 100%;
 }
 
-.versus {
+.theme {
   height:auto;
   width: 100%;
-  background-color:#502F4C;
-  background-size: cover;
+  background-color:#1aafd0;
   background-position: center;
   font-size: 3em;
   text-align: center;
-  color: #F7F7F2;
+  color: white;
   overflow: hidden;
-  border-radius: 10px;
   line-height: auto;
   position: relative;
 }
 
+
+.versus {
+  height:auto;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.players{
+  display: inline-block;
+  width: 50%;
+  height:100%;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#player1 {
+  background-color:#3be8b0;
+  float: left;
+}
+
+#player2 {
+  background-color:#fc636b;
+  float: right;
+}
+
+.scoreboard{
+  height:auto;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.score{
+  display: inline-block;
+  width: 50%;
+  height:100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#score1 {
+  background-color:#7ff0cc;
+  float: left;
+}
+
+#score2 {
+  background-color:#fdaeb2;
+  float: right;
+}
+
+
 .questions {
   background-color: #F7F7F2;
-  border-radius: 10px;
-  margin-top: 5px;
   height: 30%;
   width: 100%;
   text-align: center;
@@ -77,7 +129,12 @@ button {
   text-align:center;
 }
 
-p {
-  font-size: 0.5em;
-  color: grey;
+.right {
+  font-size: 1.5em;
+  color: green;
+}
+
+.wrong {
+  font-size: 1.5em;
+  color: red;
 }

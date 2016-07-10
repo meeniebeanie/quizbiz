@@ -1,37 +1,52 @@
 
 console.log("loaded");
 
+//get the name of your players!
+
+var getName1= prompt("Hey what's your name?");
+var getName2= prompt("And your buddy's name?");
+
+var player1 = $("#player1").html(getName1);
+var player2 = $("#player2").html(getName2);
+
+//switch turn
+
+//scoreboard
+
 //this is the blueprint for your database!
+
+var setArray = [];
 
 function Set(question, answer) {
   this.question = question;
   this.answer = answer;
+  setArray.push(this);//this pushes data into an array, called setArray.
+      // no more manual adding into arrays!: var setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10];
 }
 
 //this are all your q&a sets!
-var set1 = new Set('this is question1', true);
-var set2 = new Set('this is question2', false);
-var set3 = new Set('this is question3', true);
-var set4 = new Set('this is question4', false);
-var set5 = new Set('this is question5', true);
-var set6 = new Set('this is question6', false);
-var set7 = new Set('this is question7', true);
-var set8 = new Set('this is question8', false);
-var set9 = new Set('this is question9', true);
-var set10 = new Set('this is question10', false);
-
-//this is the array for your database!
-var setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10];
+var set1 = new Set('This is question1', true);
+var set2 = new Set('This is question2', false);
+var set3 = new Set('This is question3', true);
+var set4 = new Set('This is question4', false);
+var set5 = new Set('This is question5', true);
+var set6 = new Set('This is question6', false);
+var set7 = new Set('This is question7', true);
+var set8 = new Set('This is question8', false);
+var set9 = new Set('This is question9', true);
+var set10 = new Set('This is question10', false);
 
 //var random question randomizes questions, pairs the random question to random answer.
-var random = Math.floor((Math.random() * 10));
+// var random = Math.floor((Math.random() * 10));
+
+var random = 0;
 var randomAnswer = false;
 var randomQuestion = '';
 var quest = $(".questionsText");
 
 //next question function
 function nextQuestion(){
-  var random = Math.floor((Math.random() * 10));
+  random = Math.floor((Math.random() * 10));
   randomQuestion = setArray[random].question;
   randomAnswer = setArray[random].answer;
 
@@ -40,25 +55,19 @@ function nextQuestion(){
 }
 nextQuestion();
 
-
 //what happens if player clicks true
 var trueButton = $(".true");
 trueButton.click(function() {
   var ansTrue = true;
   if (ansTrue == randomAnswer) {
-    quest.html("you got it right!");
-    console.log("you got it right! click enter for the next question.");
+    quest.html("<p class='right'>You got it right!</p>");
+    console.log("You got it right! click enter for the next question.");
   }
   else {
-    quest.html("nope the answer is False!");
-    console.log("nope the answer is False! click enter for the next question.");
+    quest.html("<p class='wrong'>Nope the answer is False</p>");
+    console.log("Nope the answer is False! click enter for the next question.");
   }
-  setTimeout(function nextQuestion(){
-    var random = Math.floor((Math.random() * 10));
-    randomQuestion = setArray[random].question;
-    randomAnswer = setArray[random].answer;
-    quest.text(randomQuestion);
-  }, 1500);
+  setTimeout(nextQuestion, 1500);
 });
 
 //what happens if player clicks false
@@ -66,20 +75,18 @@ var falseButton = $(".false");
 falseButton.click(function() {
   var ansFalse = false;
   if (ansFalse == randomAnswer) {
-    quest.html("you got it right!");
-    console.log("you got it right! click enter for the next question.");
+    quest.html("<p class='right'>You got it right!</p>");
+    console.log("You got it right! click enter for the next question.");
   }
   else {
-    quest.html("nope the answer is True!");
-    console.log("nope the answer is True! click enter for the next question.");
+    quest.html("<p class='wrong'>Nope the answer is False</p>");
+    console.log("Nope the answer is True! click enter for the next question.");
   }
-  setTimeout(function nextQuestion(){
-    var random = Math.floor((Math.random() * 10));
-    randomQuestion = setArray[random].question;
-    randomAnswer = setArray[random].answer;
-    quest.text(randomQuestion);
-  }, 1500);
+  setTimeout(nextQuestion, 1500);
 });
+
+
+
 
 
 
