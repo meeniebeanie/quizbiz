@@ -11,7 +11,36 @@ var player2 = $("#player2").html(getName2);
 
 //switch turn
 
+var playerTurn = 2;
+function changeTurn(){
+  if (playerTurn == 2){
+    playerTurn = 1;
+    $(".turn").html("It's " + getName1+"'s turn!");
+    // console.log("it's " + getName1+"'s turn!");
+  } else {
+    playerTurn = 2;
+    $(".turn").html("It's " + getName2+"'s turn!");
+    // console.log("it's " + getName2+"'s turn!");
+  }
+}
+changeTurn();
+
 //scoreboard
+
+var player1Score = 0;
+var player2Score = 0;
+
+function addScore (){
+  if (playerTurn == 2) {
+    player2Score ++;
+    $("#score2").html(player2Score);
+    return player2Score;
+  } else if (playerTurn == 1) {
+    player1Score ++;
+    $("#score1").html(player1Score);
+    return player1Score;
+  }
+}
 
 //this is the blueprint for your database!
 
@@ -45,15 +74,43 @@ var randomQuestion = '';
 var quest = $(".questionsText");
 
 //next question function
-function nextQuestion(){
-  random = Math.floor((Math.random() * 10));
+function nextQuestion() {
+  random = Math.floor(Math.random() * setArray.length);
   randomQuestion = setArray[random].question;
   randomAnswer = setArray[random].answer;
+  console.log(setArray + "before");
+  setArray.splice(random, 1);
+  console.log(setArray + "after");
 
   //change class=questionText in html to the question text inside the setArray array
   quest.text(randomQuestion);
 }
 nextQuestion();
+
+//reset function
+function reset() {
+  setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10];
+  player1Score = 0;
+  $("#score1").html(player1Score);
+  player2Score = 0;
+  $("#score2").html(player2Score);
+}
+
+//check win
+function checkWin() {
+  if (setArray.length === 0) {
+    if (player1Score > player2Score){
+      alert(getName1 + " wins!");
+      reset();
+    }
+    else {
+      alert(getName2 + " wins!");
+      reset();
+    }
+  } else {}
+}
+
+
 
 //what happens if player clicks true
 var trueButton = $(".true");
@@ -62,12 +119,17 @@ trueButton.click(function() {
   if (ansTrue == randomAnswer) {
     quest.html("<p class='right'>You got it right!</p>");
     console.log("You got it right! click enter for the next question.");
+    addScore();
+    console.log(getName1 + "'s score is: " + player1Score);
+    console.log(getName2 + "'s score is: " + player2Score);
   }
   else {
     quest.html("<p class='wrong'>Nope the answer is False</p>");
     console.log("Nope the answer is False! click enter for the next question.");
   }
   setTimeout(nextQuestion, 1500);
+  checkWin();
+  changeTurn();
 });
 
 //what happens if player clicks false
@@ -77,14 +139,18 @@ falseButton.click(function() {
   if (ansFalse == randomAnswer) {
     quest.html("<p class='right'>You got it right!</p>");
     console.log("You got it right! click enter for the next question.");
+    addScore();
+    console.log(getName1 + "'s score is: " + player1Score);
+    console.log(getName2 + "'s score is: " + player2Score);
   }
   else {
     quest.html("<p class='wrong'>Nope the answer is False</p>");
     console.log("Nope the answer is True! click enter for the next question.");
   }
   setTimeout(nextQuestion, 1500);
+  checkWin();
+  changeTurn();
 });
-
 
 
 

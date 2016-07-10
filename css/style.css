@@ -16,6 +16,22 @@ html, body {
   position: relative;
 }
 
+.turn {
+  height:auto;
+  width: 100%;
+  background-color:#fdb94e;
+  background-position: center;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  line-height: auto;
+  position: relative;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+
 
 .versus {
   height:auto;
