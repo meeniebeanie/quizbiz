@@ -183,7 +183,7 @@ falseButton.click(function() {
     console.log(getName2 + "'s score is: " + player2Score);
   }
   else {
-    quest.html("<p class='wrong'>Nope the answer is False</p>");
+    quest.html("<p class='wrong'>Nope the answer is True</p>");
   }
   setTimeout(nextQuestion, 1000);
   checkWin();
