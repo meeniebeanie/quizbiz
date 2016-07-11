@@ -27,7 +27,6 @@ nullNameCheck();
 var player1 = $("#player1").html(getName1);
 var player2 = $("#player2").html(getName2);
 
-
 //switch turn
 
 var playerTurn = 2;
@@ -81,16 +80,16 @@ var set5 = new Set('Turtles can breathe through their butts and pee through thei
 var set6 = new Set('Dogs sweat through their tongue.', false);
 var set7 = new Set('Fingers prune underwater because of an evolutionary trait caused by the brain to enhance the grip of your fingers underwater.', true);
 var set8 = new Set('\"It\'s not you, its me.\"', false);
-var set9 = new Set('Eskimos use refrigerators to keep their food from freezing', true);
-var set10 = new Set('Goldfishes have only 3 second memory.', false);
+var set9 = new Set('Eskimos use refrigerators to keep their food from freezing.', true);
+var set10 = new Set('Goldfish only have a memory of 3 seconds.', false);
 
 var set11 = new Set('There were no lions in Singapore, ever.', true);
 var set12 = new Set('Eating food within 5 seconds of dropping it on the floor is safe.', false);
 var set13 = new Set('On Jupiter and Saturn, it rains diamonds.', true);
-var set14 = new Set('Snakes typically have two penises', true);
+var set14 = new Set('Snakes typically have two penises.', true);
 var set15 = new Set('Female kangaroos have three vaginas', true);
 var set16 = new Set('Eating ice cream will make your cold worse.', false);
-var set17 = new Set('Cartoon Network thought Singapore was in Malaysia', true);
+var set17 = new Set('Cartoon Network thought Singapore was in Malaysia.', true);
 var set18 = new Set('You only use 10% of your brain.', false);
 var set19 = new Set('There is another Singapore in the world.', true);
 var set20 = new Set('Shaving makes your hair grow back thicker.', false);
@@ -106,7 +105,7 @@ var quest = $(".questionsText");
 
 //next question function
 function nextQuestion() {
-  if (setArray.length > 10) {
+ if (setArray.length > 10) {
     random = Math.floor(Math.random() * setArray.length);
     randomQuestion = setArray[random].question;
     randomAnswer = setArray[random].answer;

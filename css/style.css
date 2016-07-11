@@ -183,3 +183,7 @@ button {
   font-size: 1.5em;
   color: red;
 }
+
+@-ms-viewport{
+  width: device-width;
+}
