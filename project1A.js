@@ -76,15 +76,24 @@ function Set(question, answer) {
 var set1 = new Set('Cows do have best friends and become stressed when they are separated.', true);
 var set2 = new Set('Vikings had horns on their helmets.', false);
 var set3 = new Set('The term "junkie" comes from the fact that recreational heroin users in the early 1900s would sell scrap metal to pay for their heroin.', true);
-// var set4 = new Set('Tomatoes are vegetables.', false);
-var set4 = new Set('I\'m fine.', false);
+var set4 = new Set('\"I\'m fine.\"', false);
 var set5 = new Set('Turtles can breathe through their butts and pee through their mouths.', true);
 var set6 = new Set('Dogs sweat through their tongue.', false);
 var set7 = new Set('Fingers prune underwater because of an evolutionary trait caused by the brain to enhance the grip of your fingers underwater.', true);
-// var set8 = new Set('Bats are blind.', false);
-var set8 = new Set('It\'s not you, its me.', false);
+var set8 = new Set('\"It\'s not you, its me.\"', false);
 var set9 = new Set('Eskimos use refrigerators to keep their food from freezing', true);
 var set10 = new Set('Goldfishes have only 3 second memory.', false);
+
+var set11 = new Set('There were no lions in Singapore, ever.', true);
+var set12 = new Set('Eating food within 5 seconds of dropping it on the floor is safe.', false);
+var set13 = new Set('On Jupiter and Saturn, it rains diamonds.', true);
+var set14 = new Set('Snakes typically have two penises', true);
+var set15 = new Set('Female kangaroos have three vaginas', true);
+var set16 = new Set('Eating ice cream will make your cold worse.', false);
+var set17 = new Set('Cartoon Network thought Singapore was in Malaysia', true);
+var set18 = new Set('You only use 10% of your brain.', false);
+var set19 = new Set('There is another Singapore in the world.', true);
+var set20 = new Set('Shaving makes your hair grow back thicker.', false);
 
 
 
@@ -97,7 +106,7 @@ var quest = $(".questionsText");
 
 //next question function
 function nextQuestion() {
-  if (setArray.length > 0) {
+  if (setArray.length > 10) {
     random = Math.floor(Math.random() * setArray.length);
     randomQuestion = setArray[random].question;
     randomAnswer = setArray[random].answer;
@@ -114,7 +123,7 @@ nextQuestion();
 //reset function
 
 function reset(){
-  setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10];
+  setArray = [set1, set2, set3, set4, set5, set6, set7, set8, set9, set10, set11, set12, set13, set14, set15, set16, set17, set18, set19, set20];
   player1Score = 0;
   $("#score1").html(player1Score);
   player2Score = 0;
@@ -128,7 +137,7 @@ function reset(){
 //check win
 
 function checkWin() {
-  if (setArray.length === 0) {
+  if (setArray.length === 10) {
     if (player1Score > player2Score){
       quest.text(getName1 + " wins!").addClass("p1WinText");
       console.log(getName1 + " wins!");
@@ -160,7 +169,7 @@ trueButton.click(function() {
   else {
     quest.html("<p class='wrong'>Nope the answer is False</p>");
   }
-  setTimeout(nextQuestion, 250);
+  setTimeout(nextQuestion, 1000);
   checkWin();
   changeTurn();
 });
@@ -177,7 +186,7 @@ falseButton.click(function() {
   else {
     quest.html("<p class='wrong'>Nope the answer is False</p>");
   }
-  setTimeout(nextQuestion, 250);
+  setTimeout(nextQuestion, 1000);
   checkWin();
   changeTurn();
 });
